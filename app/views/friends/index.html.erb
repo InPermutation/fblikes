@@ -1,0 +1,9 @@
+<h1>Choose a friend</h1>
+<h2>Logged in as <%= @api.get_object("me")['name'] %></h2>
+<% @friends = @api.get_connections("me", "friends") %>
+<ul class="container">
+<% @friends.each do |friend| %>
+    <li class="row">
+        <%= friend['name'] %>
+    </li>
+<% end %>

@@ -2,6 +2,8 @@ Fblikes::Application.routes.draw do
   get "session/index"
   get "session/create"
 
+  match "friends" => "Friends#index"
+
   root to: 'Session#index'
 
   # The priority is based upon order of creation:

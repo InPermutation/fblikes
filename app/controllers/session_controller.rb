@@ -6,6 +6,6 @@ class SessionController < ApplicationController
 
   def create
     session[:token] = params[:token]
-    # TODO: redirect to /friends
+    redirect_to friends_path
   end
 end
