@@ -4,6 +4,6 @@
 <ul class="container">
 <% @friends.each do |friend| %>
     <li class="row">
-        <%= friend['name'] %>
+        <%= link_to friend['name'], friend_url(friend['id']) %>
     </li>
 <% end %>

@@ -3,6 +3,7 @@ Fblikes::Application.routes.draw do
   get "session/create"
 
   match "friends" => "Friends#index"
+  match "friends/:id" => "Friends#get", as: :friend
 
   root to: 'Session#index'
 
