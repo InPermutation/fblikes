@@ -1,8 +1,11 @@
+<script>window.onLogin = window.fbLogin;</script>
 <div class="container">
     <div class="center hero-unit">
         <h1>FB Likes</h1>
         <h2>What interests do you have in common with your Facebook friends?</h2>
-        <a href='#' class="btn btn-large btn-primary">Log in with Facebook</a>
+        <div class="fb-login-button" data-size="xlarge" data-perms="user_likes,friends_likes" onlogin="fbLogin()">
+            Log in with Facebook
+        </div>
     </div>
 </div>
 

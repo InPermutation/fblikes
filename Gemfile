@@ -4,6 +4,9 @@ gem 'rails', '3.2.11'
 
 gem 'bootstrap-sass'
 
+gem 'koala'
+gem 'fb_graph'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
