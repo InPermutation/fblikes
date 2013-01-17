@@ -1,0 +1,28 @@
+<% them = @api.get_object(params[:id]) %>
+<h1>You and <%= them['name'] %></h1>
+<% 
+    mine, theirs = @api.batch do |batch_api|
+        batch_api.get_connections("me", "likes")
+        batch_api.get_connections(them['id'], 'likes')
+    end
+
+    mine.map! { |like| like['id'] }
+    theirs.map! { |like| like['id'] }
+
+    shared = mine.select { |like| theirs.include? like }
+
+%>
+
+<% if shared.any? %>
+    <h2>Share <%= pluralize(shared.length, "like") %></h2>
+    <ul>
+    <% shared.each do |id| %>
+        <% like = @api.get_object(id) %>
+        <li>
+            <a href="<%=like['link']%>"><%=like['name']%></a>
+        </li>
+    <% end %>
+    </ul>
+<% else %>
+    <h2>Share no likes</h2>
+<% end %>
