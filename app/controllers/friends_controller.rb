@@ -19,7 +19,7 @@ class FriendsController < ApplicationController
     mine.map! { |like| like['id'] }
     theirs.map! { |like| like['id'] }
 
-    @shared = @api.get_objects(mine.select { |id| theirs.include? id })
+    @shared = @api.get_objects(mine & theirs)
   end
 
   private
