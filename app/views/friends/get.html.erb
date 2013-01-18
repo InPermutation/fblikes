@@ -4,7 +4,7 @@
 <% if @shared.any? %>
     <h2>Share <%= pluralize(@shared.length, "like") %></h2>
     <ul>
-    <% @shared.each do |like| %>
+    <% @shared.each do |id, like| %>
         <li>
             <a href="<%=like['link']%>"><%=like['name']%></a>
         </li>
