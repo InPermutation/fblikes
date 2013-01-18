@@ -1,9 +1,14 @@
 <h1>Choose a friend</h1>
 <h2>Logged in as <%= @api.get_object("me")['name'] %></h2>
 <% @friends = @api.get_connections("me", "friends") %>
-<ul class="container">
-<% @friends.each do |friend| %>
-    <li class="row">
-        <%= link_to friend['name'], friend_url(friend['id']) %>
-    </li>
+<div class="container">
+<% @friends.each_slice(4) do | batch| %>
+    <div class="row">
+    <% batch.each do |friend| %>
+        <div class="span3">
+            <%= link_to friend['name'], friend_url(friend['id']) %>
+        </div>
+    <% end %>
+    </div>
 <% end %>
+</div>
