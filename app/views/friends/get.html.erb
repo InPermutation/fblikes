@@ -1,4 +1,5 @@
 <% them = @api.get_object(params[:id]) %>
+<% provide(:title, "You and #{them['name']}") %>
 <h1>You and <%= them['name'] %></h1>
 <% 
     mine, theirs = @api.batch do |batch_api|
