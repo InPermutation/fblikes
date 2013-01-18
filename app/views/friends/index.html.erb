@@ -1,6 +1,5 @@
 <h1>Choose a friend</h1>
-<h2>Logged in as <%= @api.get_object("me")['name'] %></h2>
-<% @friends = @api.get_connections("me", "friends") %>
+<h2>Logged in as <%= @me['name'] %></h2>
 <div class="container">
 <% @friends.each_slice(4) do | batch| %>
     <div class="row">
